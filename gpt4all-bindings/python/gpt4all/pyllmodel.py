@@ -147,7 +147,7 @@ def _create_model(model_path: bytes) -> ctypes.c_void_p:
     model = llmodel.llmodel_model_create2(model_path, b"auto", ctypes.byref(err))
     if model is None:
         s = err.value
-        raise ValueError("Unable to instantiate model: {'null' if s is None else s.decode()}")
+        raise ValueError(f"Unable to instantiate model: {'null' if s is None else s.decode()}")
     return model
 
 
